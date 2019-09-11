@@ -1,0 +1,150 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<title>Calculator</title>
+		<style type="text/css">
+		.container{
+			margin-top: 20px;
+		}
+	</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<div class="form-group">
+						<input type="number" class="form-control" id="angka1">
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="check1" value="option1">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<div class="form-group">
+						<input type="number" class="form-control" id="angka2">
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="check2" value="option1">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<div class="form-group">
+						<input type="number" class="form-control" id="angka3">
+					</div>
+				</div>
+				<div class="col-md-2">
+					<div class="form-check form-check-inline">
+						<input class="form-check-input" type="checkbox" id="check3" value="option1">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<button class="btn btn-light" onclick="tambah();">+</button>
+					<button class="btn btn-light" onclick="kurang()">-</button>
+					<button class="btn btn-light" onclick="kali();">x</button>
+					<button class="btn btn-light" onclick="bagi();">/</button>
+				</div>
+			</div>
+				<hr width="15%" align="left">
+			<div class="row">
+				<div class="col-md-2">
+					<h3>Hasil:</h3>
+				</div>
+				<div class="col-md-2">
+					<h3 id="hasil">0</h3>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var angka1 = document.getElementById('angka1');
+		var angka2 = document.getElementById('angka2');
+		var angka3 = document.getElementById('angka3');
+
+		var check1 = document.getElementById('check1');
+		var check2 = document.getElementById('check2');
+		var check3 = document.getElementById('check3');
+
+		var hasil = document.getElementById('hasil');
+		var value = 0;
+
+		function tambah() {
+			if (check1.checked == true && check2.checked == true && check3.checked == true) {
+				value = parseInt(angka1.value) + parseInt(angka2.value) + parseInt(angka3.value);
+			}else if(check1.checked == true && check3.checked == true){
+				value = parseInt(angka1.value) + parseInt(angka3.value);
+			}else if(check2.checked == true && check3.checked == true){
+				value = parseInt(angka2.value) + parseInt(angka3.value);
+			}else if(check1.checked == true && check2.checked == true){
+				value = parseInt(angka1.value) + parseInt(angka2.value);
+			}else{
+				alert('Ceklis nya kurang gan, ngga boleh satu Ceklisnya');
+			}
+
+			hasil.innerHTML = value;
+		}
+
+		function kurang() {
+			if (check1.checked == true && check2.checked == true && check3.checked == true) {
+				value = parseInt(angka1.value) - parseInt(angka2.value) - parseInt(angka3.value);
+			}else if(check1.checked == true && check3.checked == true){
+				value = parseInt(angka1.value) - parseInt(angka3.value);
+			}else if(check2.checked == true && check3.checked == true){
+				value = parseInt(angka2.value) - parseInt(angka3.value);
+			}else if(check1.checked == true && check2.checked == true){
+				value = parseInt(angka1.value) - parseInt(angka2.value);
+			}else{
+				alert('Ceklis nya kurang gan, ngga boleh satu Ceklisnya');
+			}
+
+			hasil.innerHTML = value;
+		}
+
+		function kali() {
+			if (check1.checked == true && check2.checked == true && check3.checked == true) {
+				value = parseInt(angka1.value) * parseInt(angka2.value) * parseInt(angka3.value);
+			}else if(check1.checked == true && check3.checked == true){
+				value = parseInt(angka1.value) * parseInt(angka3.value);
+			}else if(check2.checked == true && check3.checked == true){
+				value = parseInt(angka2.value) * parseInt(angka3.value);
+			}else if(check1.checked == true && check2.checked == true){
+				value = parseInt(angka1.value) * parseInt(angka2.value);
+			}else{
+				alert('Ceklis nya kurang gan, ngga boleh satu Ceklisnya');
+			}
+
+			hasil.innerHTML = value;
+		}
+
+		function bagi() {
+			if (check1.checked == true && check2.checked == true && check3.checked == true) {
+				value = parseInt(angka1.value) / parseInt(angka2.value) / parseInt(angka3.value);
+			}else if(check1.checked == true && check3.checked == true){
+				value = parseInt(angka1.value) / parseInt(angka3.value);
+			}else if(check2.checked == true && check3.checked == true){
+				value = parseInt(angka2.value) / parseInt(angka3.value);
+			}else if(check1.checked == true && check2.checked == true){
+				value = parseInt(angka1.value) / parseInt(angka2.value);
+			}else{
+				alert('Ceklis nya kurang gan, ngga boleh satu Ceklisnya');
+			}
+
+			hasil.innerHTML = value;
+		}
+
+
+	</script>
+	</html>
